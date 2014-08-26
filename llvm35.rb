@@ -41,8 +41,8 @@ class Llvm35 < Formula
 
   depends_on :python => :recommended
   depends_on 'gmp'
-  depends_on 'isl'
-  depends_on 'cloog'
+  depends_on 'islpolly'
+  depends_on 'cloogpolly'
   depends_on 'libffi' => :recommended
 
   def ver; '3.5'; end # version suffix
@@ -96,8 +96,8 @@ class Llvm35 < Formula
       # OCaml 3.12.1 results in errors.
       "--disable-bindings",
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
-      "--with-isl=#{Formula["isl"].opt_prefix}",
-      "--with-cloog=#{Formula["cloog"].opt_prefix}"
+      "--with-isl=#{Formula["islpolly"].opt_prefix}",
+      "--with-cloog=#{Formula["cloogpolly"].opt_prefix}"
     ]
 
     if build.include? 'all-targets'
